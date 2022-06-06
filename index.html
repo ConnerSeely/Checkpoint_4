@@ -32,15 +32,15 @@
         <!-- <span class="quote-hover">Content</span>
           <p class="author" id="author">Author</p> -->
       </div>
-      <div class="container">
+      <div class="container bg-dark w-25" style="margin: 0;">
         <h1 class="app-title text-light">Todos</h1>
         <ul class="todo-list" id="todo-list">
 
         </ul>
 
         <form class="form" onsubmit="app.todoController.createTodo()">
-          <input name="task" id="task" autofocus required minlength="3" type="text" aria-label="Enter a new todo item"
-            placeholder="Create a Todo">
+          <input name="description" id="description" autofocus required minlength="3" type="text"
+            aria-label="Enter a new todo item" placeholder="Create a Todo">
         </form>
       </div>
     </div>

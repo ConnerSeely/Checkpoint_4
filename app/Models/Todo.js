@@ -1,16 +1,17 @@
+
+
 export class Todo {
     constructor(todoData) {
         this.id = todoData.id
-        this.task = todoData.task
-        this.checked = todoData.checked || false
+        this.description = todoData.description
+        this.completed = todoData.completed || false
     }
 
     get Template() {
         return `
-        <input id="${this.id}" type="checkbox"/>
-        <span>${this.task}</span>
-        <button class="delete-todo" onsubmit="app.todoController.deleteTodo()">
-        </button>
+        <li class="text-light"> <input type="checkbox" ${this.completed ? 'checked' : ''} onclick="app.todoController.completeTodo('${this.id}')"> 
+        ${this.description} 
+        <input type="button" value="Delete" onclick="app.todoController.deleteTodo('${this.id}');"></li>
         `
     }
 

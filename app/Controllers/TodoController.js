@@ -32,11 +32,31 @@ export class TodoController {
             console.log('creating todo');
             let form = window.event.target
             let todoData = {
-                task: form.task.value
+                description: form.description.value
             }
             await todoService.createTodo(todoData)
         } catch (error) {
             console.error(error);
+            Pop.toast(error.message, 'error')
+        }
+    }
+
+    async deleteTodo(id) {
+        try {
+            if (confirm('Delete Todo?')) {
+                await todoService.deleteTodo(id)
+            }
+        } catch (error) {
+            console.error(error)
+            Pop.toast(error.message, 'error')
+        }
+    }
+
+    async completeTodo(id) {
+        try {
+            await todoService.completeTodo(id)
+        } catch (error) {
+            console.error(error)
             Pop.toast(error.message, 'error')
         }
     }
