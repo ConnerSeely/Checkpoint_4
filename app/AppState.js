@@ -1,9 +1,18 @@
+import { Todo } from "./Models/Todo.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
+
+  images = null
+
+  weather = null
+
+  quotes = null
+
+  todoItems = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {
